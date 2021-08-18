@@ -63,6 +63,10 @@ def add_current():
                 return redirect(url_for('current', currency_code=code_curent))
             elif info[0].price == res['rates'][code_curent]:
                 return redirect(url_for('current', currency_code=code_curent))
+            else:
+                c = Current(currency=code_curent, price=res['rates'][code_curent])
+                db.session.add(c)
+                db.session.commit()
             return redirect(url_for('current', currency_code=code_curent))
         except BaseException:
             print('Error')
