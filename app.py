@@ -31,7 +31,6 @@ app.config.update({
 })
 
 
-
 class Current(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     currency = db.Column(db.String(10))
